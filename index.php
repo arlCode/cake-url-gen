@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 
 <html>
+<?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+?>
 <head>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -14,6 +20,11 @@
         crossorigin="anonymous">
 </head>
 
+<?php require('./app_start/controller.php'); ?>
+
+
+
+<?php print_r($jordanCake); ?>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -80,9 +91,12 @@
                             Select Campaign
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <?php
+                                foreach($jordanCake as $campaign) { ?>
+                                    
+                                    <a class="dropdown-item" href="#"> <?php echo $campaign["offer_name"]; ?> </a>
+
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
