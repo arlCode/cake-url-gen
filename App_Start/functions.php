@@ -2,11 +2,8 @@
 
 require("app_data/localdb.php");
 
-
-// Methods for the API parsing.
-
-
-class apiModel {
+// Varying methods for controller API and DB controls.
+class DataController {
 
     public function getAPIResponse() {
         $source = new api;
@@ -43,6 +40,38 @@ class apiModel {
             return $arr;
         }
     }
+
+    function sqlOutput($dataToPull) {
+        $db_class = new db();
+        $curRow = 0;
+        $array = array();
+        
+        $connection = $db_class->connectDB(); // Database of Creative Requests
+        $sql = "SELECT * FROM user;";
+        $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
+
+        if(mysqli_num_rows($result) === 0){
+            echo "No requests pending.";
+            
+        } elseif(mysqli_num_rows($result) > 0) {
+
+                if($dataToPull === "traffic_source") {
+
+                    while($row = $result->fetch_array()) {
+                    
+                        array_push($array, $row['traffic_source']);
+                    }
+
+                }
+            
+            }   else {
+                
+                echo "Something went wrong with DB Output function.";
+        }
+
+        return $array;
+        $result->close();
+    }     
 
 }
 

@@ -18,13 +18,11 @@ error_reporting(E_ALL);
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
+    
 </head>
 
 <?php require('./app_start/controller.php'); ?>
 
-
-
-<?php print_r($jordanCake); ?>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -78,9 +76,11 @@ error_reporting(E_ALL);
                             Select Traffic Source
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <?php foreach($api->sqlOutput("traffic_source") as $tSource) { ?>
+                                
+                                <a class="dropdown-item" href="#"><?php echo $tSource  ?></a>
+                           
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -120,7 +120,7 @@ error_reporting(E_ALL);
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="input-group">
-                                <input disabled type="text" class="form-control" placeholder="Search for...">
+                                <input id="url-output" disabled type="text" class="form-control" value="">
                                 <span class="input-group-btn">
                                     <button class="btn btn-secondary btn-primary" type="button">Go!</button>
                                 </span>
@@ -130,11 +130,10 @@ error_reporting(E_ALL);
                 </div>
             </div>
         </div>
-
     </main>
-</body>
-
 <footer>
 </footer>
 
+<script src="./js/eventHandling.js"></script>
+</body>
 </html>

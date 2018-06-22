@@ -2,12 +2,15 @@
 
 require("functions.php");
 
-$api = new apiModel();
+$api = new DataController();
 
-$api->getAPIResponse();
+$api->getAPIResponse(); // Get the API Response call
 
 
-$jordanCake = $api->createArray(null, "data", "campaign", "cake", 3);
+$jordanCake = $api->createArray(null, "data", "campaign", "cake", 3); // Creates an Array out of JSON to parse data.
+
+
+
 ?>
 
 
