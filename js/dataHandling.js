@@ -21,8 +21,6 @@ var urlString = {
 
     getFirstCharacter(trafficSource) {
 
-        console.log(trafficSource.text().charAt(0));
-
-        return trafficSource.text().charAt(0);
+        return trafficSource.text().charAt(0).toLowerCase();
     }
 }
