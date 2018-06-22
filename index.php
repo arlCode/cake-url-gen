@@ -136,5 +136,6 @@ error_reporting(E_ALL);
 
 <script src="./js/eventHandling.js"></script>
 <script src="./js/stackoverflow.js"></script> <!-- Because I don't have all the answers. -->
+<script src="./js/dataHandling.js"></script>
 </body>
 </html>
