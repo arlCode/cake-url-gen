@@ -12,17 +12,16 @@ var urlString = {
 
     get currentUrl() {
 
-        return
+        return this.currentString;
 
     },
 
     set updateUrl(updatedString) {
 
-        this.urlString = updatedString;
+        this.currentString = updatedString;
     },
 
     getFirstCharacter(trafficSource) {
-
 
         console.log(trafficSource.text().charAt(0));
 
