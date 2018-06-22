@@ -134,8 +134,8 @@ error_reporting(E_ALL);
 <footer>
 </footer>
 
+<script src="./js/dataHandling.js"></script>
 <script src="./js/eventHandling.js"></script>
 <script src="./js/stackoverflow.js"></script> <!-- Because I don't have all the answers. -->
-<script src="./js/dataHandling.js"></script>
 </body>
 </html>
