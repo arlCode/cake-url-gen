@@ -78,7 +78,7 @@ error_reporting(E_ALL);
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <?php foreach($api->sqlOutput("traffic_source") as $tSource) { ?>
                                 
-                                <a class="dropdown-item" href="#"><?php echo $tSource  ?></a>
+                                <a class="dropdown-item traffic-source" href="#"><?php echo $tSource  ?></a>
                            
                             <?php } ?>
                         </div>
@@ -94,7 +94,7 @@ error_reporting(E_ALL);
                             <?php
                                 foreach($jordanCake as $campaign) { ?>
                                     
-                                    <a class="dropdown-item" href="#"> <?php echo $campaign["offer_name"]; ?> </a>
+                                    <a class="dropdown-item campaign" href="#"> <?php echo $campaign["offer_name"]; ?> </a>
 
                             <?php } ?>
                         </div>
@@ -135,5 +135,6 @@ error_reporting(E_ALL);
 </footer>
 
 <script src="./js/eventHandling.js"></script>
+<script src="./js/stackoverflow.js"></script> <!-- Because I don't have all the answers. -->
 </body>
 </html>

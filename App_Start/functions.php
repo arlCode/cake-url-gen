@@ -71,7 +71,7 @@ class DataController {
 
         return $array;
         $result->close();
-    }     
+    }
 
 }
 
