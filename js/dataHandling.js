@@ -4,11 +4,9 @@
 
 
 // Controls the parsing for Campaign parameters.
-
-
 var urlString = {
 
-    currentString: "https://example.com/?aff=&src=&c=&utm_medium=${CAMPAIGN_ID}",
+    currentString: "https://example.com/?aff=&src=&c=&oid=&cid=&utm_medium=${CAMPAIGN_ID}",
 
     get currentUrl() {
 

@@ -1,14 +1,19 @@
 $(".campaign").on("click", function(){ // Changes the parameter values per click.
 
-    if($(this).text() == " VA Benefits - VeteranLending.com "){
 
-        urlString.updateUrl = replaceUrlParam(urlString.currentString, "aff", 250);
+    // Uncomment the if statement if you need the secondary change.
+    // if($(this).text() == " VA Benefits - VeteranLending.com "){
 
-    } else {
+    //     urlString.updateUrl = replaceUrlParam(urlString.currentString, "aff", 250);
+
+    // } else {
 
         urlString.updateUrl = replaceUrlParam(urlString.currentString, "aff", 3);
+        
+        // Number 3 affiliate ID is Jordans, this will be pulled in
+        // a different method once moved into server.
 
-    }
+    // }
 
     $("#url-output").val(urlString.currentString); // URL Output
 });
