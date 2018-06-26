@@ -27,11 +27,13 @@ error_reporting(E_ALL);
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10">
-                        <button class="btn btn-success float-right">Upload New Lander</button>
+                    <div class="col-md-11">
+                        <button type="button" data-toggle="modal" data-target="#new-lander-modal" class="btn btn-success float-right">Upload New Lander</button>
                     </div>
                 </div>
             </div>
+
+            <?php require('./modal.php'); ?>
 
             <div class="flex-container">
                 <div class="row">
@@ -88,16 +90,16 @@ error_reporting(E_ALL);
             </div>
 
             <div class="flex-container">
-                    <div class="col-8">
-                        <div class="row">
-                            <div class="input-group">
-                                <input id="url-output" disabled type="text" class="form-control" value="">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-secondary btn-primary" type="button">Copy</button>
-                                </span>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" disabled aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-success" type="button">Button</button>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </main>
         <footer>
