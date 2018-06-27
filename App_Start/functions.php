@@ -59,13 +59,13 @@ class DataController {
         }
     }
 
-    function sqlOutput($dataToPull) {
+    function sqlOutput($dataToPull, $dataTable) {
         $db_class = new db();
         $curRow = 0;
         $array = array();
         
         $connection = $db_class->connectDB(); // Database of Creative Requests
-        $sql = "SELECT * FROM user;";
+        $sql = "SELECT * FROM " . $dataTable;
         $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 
         if(mysqli_num_rows($result) === 0){
@@ -73,19 +73,20 @@ class DataController {
             
         } elseif(mysqli_num_rows($result) > 0) {
 
-                if($dataToPull === "traffic_source") {
+                if(isset($dataToPull)) { // Allows for grabbing specific columns.
 
                     while($row = $result->fetch_array()) {
                     
-                        array_push($array, $row['traffic_source']);
-                    }
+                        array_push($array, $row[$dataToPull]);
 
-                }
+                    }
             
             }   else {
                 
                 echo "Something went wrong with DB Output function.";
         }
+
+    }
 
         return $array;
         $result->close();

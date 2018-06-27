@@ -44,7 +44,7 @@ error_reporting(E_ALL);
                                 Select Traffic Source
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <?php foreach($api->sqlOutput("traffic_source") as $tSource) { ?>
+                                <?php foreach($api->sqlOutput("traffic_source", "user") as $tSource) { ?>
 
                                 <a class="dropdown-item traffic-source" href="#">
                                     <?php echo $tSource  ?>
@@ -63,12 +63,13 @@ error_reporting(E_ALL);
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <?php
-                                foreach($jordanCake as $campaign) { ?>
+                                foreach($jordanCake as $campaign) { ?> <!-- API Call -->
 
                                     <a class="dropdown-item campaign" href="#">
-                                        <?php echo $campaign["offer_name"]; ?> </a>
+                                        <?php echo $campaign["offer_name"]; ?> 
+                                    </a>
 
-                                    <?php } ?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -80,9 +81,14 @@ error_reporting(E_ALL);
                                 Select Landing Page
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                <?php
+                                foreach($api->sqlOutput("lander_title", "landers") as $landerTitle) { ?>
+
+                                    <a class="dropdown-item campaign" href="#">
+                                        <?php echo $landerTitle; ?>  
+                                    </a>
+
+                                    <?php } ?>
                             </div>
                         </div>
                     </div>
