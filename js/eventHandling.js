@@ -21,11 +21,21 @@ $(".campaign").on("click", function(){ // Changes the parameter values per click
 
 $(".traffic-source").on("click", function(){ // Changes the parameter values per click.
 
+
     urlString.updateUrl = replaceUrlParam(urlString.currentString, "src", urlString.getFirstCharacter($(this)) + "-" + 101);
 
 
     $("#url-output").val(urlString.currentString); // URL Output
 });
+
+
+$(".lander").on("click", function() {
+
+
+    console.log("Display lander screenshot stored in DB.");
+
+    console.log("Update the URL.");
+})
 
 
 
