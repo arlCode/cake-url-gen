@@ -101,7 +101,7 @@ error_reporting(E_ALL);
                             </div>
                         </div>
 
-                        <img id="thumbnail-display" class="img-fluid img-thumbnail" />  <!-- Image responsive dynamic lander thumbnails. -->
+                        <img id="thumbnail-display" />  <!-- Image responsive dynamic lander thumbnails. -->
                     </div>
                 </div>
             </div>
