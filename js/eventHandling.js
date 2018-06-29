@@ -32,9 +32,18 @@ $(".traffic-source").on("click", function(){ // Changes the parameter values per
 $(".lander").on("click", function() {
 
 
-    console.log("Display lander screenshot stored in DB.");
+    
 
-    console.log("Update the URL.");
+    var newUrl = "https://google.com/", // TODO: Get this from the lander data row.
+    reg = /(.+)\?/; // Regex everything before the question mark.
+    
+    urlString.updateUrl = urlString.currentString.replace(reg, newUrl + "?"); // Update the URL in the urlString object.
+
+    
+    $("#url-output").val(urlString.currentString); // URL Output
+    $("#thumbnail-display").attr("src", "thumbs/default.jpg");
+
+    console.log("Display lander screenshot stored in DB.");
 })
 
 
