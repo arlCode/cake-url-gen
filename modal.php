@@ -12,17 +12,18 @@
             <!-- Modal body -->
             <div class="modal-body">
 
+                <form id="new-lander">
                 <div class="flex-container">
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <input placeholder="Lander Title" type="text" class="form-control" id="title">
+                                <input name="lander-title" placeholder="Lander Title" type="text" class="form-control" id="title">
                             </div>
                         </div>
 
                         <div class="col-6">
                             <div class="form-group">
-                                <input placeholder="https://example.com/" type="text" class="form-control" id="url">
+                                <input name="lander-url" placeholder="https://example.com/" type="text" class="form-control" id="url">
                             </div>
                         </div>
                     </div>
@@ -33,9 +34,9 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-success float-right" data-dismiss="modal">Submit</button>
+                <button id="submit-new-lander" type="submit" class="btn btn-success float-right" >Submit</button>
             </div>
-
+            </form>
         </div>
     </div>
 </div>
