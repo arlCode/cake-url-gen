@@ -118,6 +118,8 @@ error_reporting(E_ALL);
         <script src="./js/dataHandling.js"></script>
         <script src="./js/eventHandling.js"></script>
         <script src="./js/stackoverflow.js"></script>
+        <script src="./js/ajax/lander.js"></script>
+        <script src="./js/ajax/traffic-source.js"></script>
         <!-- Because I don't have all the answers. -->
     </body>
 
