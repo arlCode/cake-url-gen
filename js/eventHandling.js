@@ -31,9 +31,6 @@ $(".traffic-source").on("click", function () { // Changes the parameter values p
 
 $(".lander").on("click", function () {
 
-
-
-
     var newUrl = "https://google.com/", // TODO: Get this from the lander data row.
         reg = /(.+)\?/; // Regex everything before the question mark.
 
