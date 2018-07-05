@@ -1,11 +1,13 @@
 <?php
 
-require('../localdb.php');
+// echo "requesting functions.php page.";
 
-$post_data = json_encode(
-    array('lander_title' => $_POST['lander-title'],
-    'lander_url' => $_POST['lander-url'])
-);
 
-echo $post_data;
+
+
+$post_data = $dataController->sqlInput("Direct Input", "https://lander-test.com");
+
+//TODO: Insert into DB from JSON.
+
+print_r($post_data);
 ?>

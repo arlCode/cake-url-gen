@@ -13,22 +13,14 @@ class DataController {
         return $response;
     }
 
-    function sqlInput($name, $offerName, $dimensions, $imageType, $headlines, $targetAudience, $landerUrls, $assets, $priority, $placement, $text_on_image, $notes)
+    function sqlInput($landerTitle, $landerUrl)
     {
-        $connection = $this->db_class->connectDB(); // Database of Creative Requests
-        $sql = "INSERT INTO creative_request " . "(`name`, `offer`, `dimensions`, `image_type`, `headlines`, `audience`, `lander_url`, `assets`, `assigned_name`, `priority`, `placement`, `text_on_image`, `notes`)" . " VALUES " . 
-        "('" . $name . "','" . $offerName . "','" . $dimensions ."','" . $imageType . "','" . $headlines . "','" . $targetAudience . "','" . $landerUrls . "','" . $assets . "','Not Assigned','" . $priority . "','" . $placement . "','" . $text_on_image . "','" . $notes . "')";
-        $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
-        
+        $post_data = json_encode(
+            array('lander_title' => $_POST['lander-title'],
+            'lander_url' => $_POST['lander-url'])
+        );
 
-        if ($result === false) {        
-            die(mysqli_error($result));  
-        } else {
-            $result = 'Added the creative request!';
-        }
-
-        $connection->close();
-        return $result;
+        return $post_data;
     }
 
     public function createArray($grandparent, $parent, $child, $apiToPull, $affiliate_id) { // JSON Array Generator
@@ -95,8 +87,8 @@ class DataController {
 }
 
 
-
-
 ?>
+
+
 
 
