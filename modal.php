@@ -40,3 +40,5 @@
         </div>
     </div>
 </div>
+
+<?php require("app_data/ajax/lander.php"); ?>

@@ -4,6 +4,7 @@ require("app_data/localdb.php");
 
 // Varying methods for controller API and DB controls.
 class DataController {
+    
 
     public function getAPIResponse() {
         $source = new api;
@@ -13,14 +14,29 @@ class DataController {
         return $response;
     }
 
-    function sqlInput($landerTitle, $landerUrl)
+    public function sqlInput($landerTitle, $landerUrl)
     {
+        $db_class = new db();
         $post_data = json_encode(
-            array('lander_title' => $_POST['lander-title'],
-            'lander_url' => $_POST['lander-url'])
+            array('lander_title' => $landerTitle,
+            'lander_url' => $landerUrl)
         );
 
-        return $post_data;
+        $connection = $db_class->connectDB(); // Database of Creative Requests
+        $sql = "INSERT INTO landers " . "(`lander_title`, `lander_url`)" . " VALUES " . 
+        "('" . $landerTitle . "','" . $landerUrl . "')";
+        $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
+        
+        if ($result === false) {        
+            die(mysqli_error($result));  
+        } else {
+            $result = 'Added the creative request!';
+        }
+        $connection->close();
+
+        $jsonResults = array('result' => $result);
+        
+        return json_encode($jsonResults);
     }
 
     public function createArray($grandparent, $parent, $child, $apiToPull, $affiliate_id) { // JSON Array Generator

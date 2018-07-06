@@ -1,4 +1,5 @@
 <?php
+
 require("global.php");
 class api {
 

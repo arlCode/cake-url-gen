@@ -16,3 +16,10 @@ $('#new-lander').submit(function() {
     });
 
 })
+
+
+$('.lander').on('click', function() {
+
+
+    console.log("Hm?: " + $(this).text().trim());
+})
