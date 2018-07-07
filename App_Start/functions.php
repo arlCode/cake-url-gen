@@ -67,13 +67,21 @@ class DataController {
         }
     }
 
-    function sqlOutput($dataToPull, $dataTable) {
+    function sqlOutput($dataToPull, $dataTable, $where) {
         $db_class = new db();
         $curRow = 0;
         $array = array();
         
         $connection = $db_class->connectDB(); // Database of Creative Requests
         $sql = "SELECT * FROM " . $dataTable;
+
+        if(isset($where)) {
+            $sql = "SELECT `lander_url` FROM landers WHERE lander_title='" . $where;
+
+            echo $sql;
+        }
+
+
         $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
 
         if(mysqli_num_rows($result) === 0){

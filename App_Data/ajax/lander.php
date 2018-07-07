@@ -12,8 +12,9 @@ if(!empty($_GET)) {
 
 }
 
+// $dataController->sqlOutput("lander_url", "landers", $_GET['data']);
 
-
+print_r($_GET);
 //TODO: Insert into DB from JSON.
 
 

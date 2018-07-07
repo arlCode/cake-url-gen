@@ -20,6 +20,16 @@ $('#new-lander').submit(function() {
 
 $('.lander').on('click', function() {
 
+    var data = $(this).text().trim();
 
-    console.log("Hm?: " + $(this).text().trim());
+    $.post('app_data/ajax/lander.php', data, function(response) {
+        // Log the response to the console
+
+        var parsedResponse = $.parseJSON(response); // Parses responses for SQL insert
+
+
+        console.log("Response: " + parsedResponse.lander_title);
+        console.log("Serialized Data: " + serializedData);
+    });
+
 })
