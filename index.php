@@ -44,7 +44,7 @@ error_reporting(E_ALL);
                                 Select Traffic Source
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <?php foreach($dataController->sqlOutput("traffic_source", "user", null) as $tSource) { ?>
+                                <?php foreach($dataController->sqlOutput("traffic_source", "user") as $tSource) { ?>
 
                                 <a class="dropdown-item traffic-source" href="#"><?php echo $tSource  ?></a>
 
@@ -78,11 +78,11 @@ error_reporting(E_ALL);
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <?php
-                                foreach($dataController->sqlOutput("lander_title", "landers", null) as $landerTitle) { ?>
+                                foreach($dataController->sqlOutput("lander_title", "landers") as $landerTitle) { ?>
 
-                                    <a class="dropdown-item lander" href="#">
+                                    <button name="lander-name" class="dropdown-item lander">
                                         <?php echo $landerTitle; ?>  
-                                    </a>
+                                    </buttom>
 
                                     <?php } ?>
                             </div>

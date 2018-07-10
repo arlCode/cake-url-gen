@@ -18,7 +18,7 @@ $('#new-lander').submit(function() {
 })
 
 
-$('.lander').on('click', function() {
+$('.lander').on("click", function() {
 
     var data = $(this).text().trim();
 
@@ -31,5 +31,7 @@ $('.lander').on('click', function() {
         console.log("Response: " + parsedResponse.lander_title);
         console.log("Serialized Data: " + serializedData);
     });
+
+    alert("test");
 
 })

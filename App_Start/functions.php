@@ -67,19 +67,47 @@ class DataController {
         }
     }
 
-    function sqlOutput($dataToPull, $dataTable, $where) {
+    function sqlOutputWhere($dataToPull, $dataTable, $where) {
+        $db_class = new db();
+        $curRow = 0;
+        $array = array();
+        $connection = $db_class->connectDB(); // Database of Creative Requests
+        $sql = "SELECT `" . $dataToPull . "` FROM " . $dataTable . " WHERE lander_title='" . $where . "'";
+        echo $sql;
+    
+        $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
+
+        if(mysqli_num_rows($result) === 0){
+            echo "No requests pending.";
+            
+        } elseif(mysqli_num_rows($result) > 0) {
+
+            if(isset($dataToPull)) { // Allows for grabbing specific columns.
+
+                while($row = $result->fetch_array()) {
+                
+                    array_push($array, $row[$dataToPull]);
+
+                }
+        
+            }   else {
+                
+                echo "Something went wrong with DB Output function.";
+            }
+
+        }
+
+        return $array;
+        $result->close();
+    }
+
+    function sqlOutput($dataToPull, $dataTable) {
         $db_class = new db();
         $curRow = 0;
         $array = array();
         
         $connection = $db_class->connectDB(); // Database of Creative Requests
         $sql = "SELECT * FROM " . $dataTable;
-
-        if(isset($where)) {
-            $sql = "SELECT `lander_url` FROM landers WHERE lander_title='" . $where;
-
-            echo $sql;
-        }
 
 
         $result = mysqli_query($connection, $sql) or die(mysqli_error($connection));
@@ -89,25 +117,24 @@ class DataController {
             
         } elseif(mysqli_num_rows($result) > 0) {
 
-                if(isset($dataToPull)) { // Allows for grabbing specific columns.
+            if(isset($dataToPull)) { // Allows for grabbing specific columns.
 
-                    while($row = $result->fetch_array()) {
-                    
-                        array_push($array, $row[$dataToPull]);
+                while($row = $result->fetch_array()) {
+                
+                    array_push($array, $row[$dataToPull]);
 
-                    }
-            
+                }
+        
             }   else {
                 
                 echo "Something went wrong with DB Output function.";
-        }
+            }
 
-    }
+        }
 
         return $array;
         $result->close();
     }
-
 }
 
 
